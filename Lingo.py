@@ -83,7 +83,6 @@ def get_guess(word, gamelog):
 ######################################################################################################################
 def end_of_game(gamelog):
     guesses = (int)(((len(gamelog)-2))/3)
-    print()
     if guesses == 1:
         print("Congrats! You got the Lingo word! It took you " + str(guesses) + " guess to get the word! Impressive!")
     else:
@@ -99,8 +98,6 @@ def main():
     gamelog = []
     word, gamelog = choose_word(gamelog)
     gamelog.append("------------------------------")
-    print(word)
-    print(len(word))
     print("Welcome to Lingo!")
     print_log(gamelog)
     while("_" in gamelog[0]):
