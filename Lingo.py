@@ -20,19 +20,28 @@ def choose_word(gamelog):
 ##############################################################################################
 #   Universal way of displaying words or lists with spaces between indexes for readability   #
 ##############################################################################################
-def print_display(display):
-    for letter in display:
-        print(letter + " ", end="")
-    print("")
+def print_display(display, mode):
+    if mode == 0:
+        for letter in display:
+            print(letter + " ", end="")
+        print("")
+    elif mode == 1:
+        for letter in display:
+            print(letter + " ", end="")
 
 ###################################################################################################################
 #   Used to print the game log after every guess to keep the player from having to scroll back through the game   #
 ###################################################################################################################
 def print_log(gamelog):
     print()
+    lenPrint = True
     for word in gamelog:
-        if(word != "------------------------------"):
-            print_display(word)
+        if(word == gamelog[0] and lenPrint):
+            print_display(word, 1)
+            print(" Length: " + str(len(word)))
+            lenPrint = False
+        elif(word != "------------------------------"):
+            print_display(word, 0)
         else:
             print(word)
     print()
